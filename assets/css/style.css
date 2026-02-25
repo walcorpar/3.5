@@ -1,0 +1,55 @@
+.layout-grid {
+ display: grid;
+
+    grid-template-areas:
+        "header  header"
+        "sidebar main"
+        "sidebar footer";
+    grid-template-columns: 250px 1fr; /* Sidebar ancho fijo, main el resto */
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+}
+.header {
+    grid-area: header;
+    border: black solid 1px;
+    /*background-color: #e2d1c3; /* Color sugerido para combinar con tu café */
+    padding: 30px;
+    justify-content:center;
+    align-items:center;
+    display: flex;
+}
+
+.sidebar {
+    grid-area: sidebar;
+    border: black solid 1px;
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+}
+
+.sidebar h2 {
+    margin-top: 10;
+    display: flex;
+    justify-content:center;
+}
+
+.main {
+    grid-area: main;
+
+    /*
+    background-color: #FFF8DC;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra el contenido del desafío */
+}
+
+.footer {
+    grid-area: footer;
+    border: black solid 1px;
+    /*
+    background-color: #4A2C2A;
+    color: white;
+    text-align: center;
+    padding: 10px; */
+}

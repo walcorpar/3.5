@@ -1,0 +1,44 @@
+
+img {
+    width: 300px;
+    cursor: pointer;
+    border: 0px solid red;
+}
+
+/* Contenedor de las imágenes y los inputs */
+.sticker-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.sticker-item img {
+    width: 150px;
+    height: 150px;      /* Forzamos una altura fija para que todas sean iguales */
+    object-fit: cover;  /* Esto recorta la imagen para que llene el cuadrado sin deformarse */
+    border-radius: 10px;
+    border: 1px solid #ddd; /* Opcional: un borde fino para que parezcan stickers */
+}
+
+/* Estilo para los inputs de cantidad */
+.sticker-item input {
+    width: 80px;
+    text-align: center;
+}
+
+/* Estilo para el mensaje de éxito/error */
+#mensaje-stickers {
+    min-height: 24px; /* Evita que el botón salte cuando aparece el texto */
+    margin-bottom: 15px;
+}
+
+/* 1. Ocultamos las tres secciones por defecto */
+.id_1, .id_2, .id_3 {
+    display: none;
+}
+
+/* 2. Reglas para mostrar según la clase del contenedor padre */
+.mostrar-1 .id_1 { display: flex; }
+.mostrar-2 .id_2 { display: flex; }
+.mostrar-3 .id_3 { display: flex; } 
