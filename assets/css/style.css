@@ -25,10 +25,27 @@
     display: flex;
     flex-direction: column;
     padding: 40px;
+    /* Asegura que el sidebar ocupe todo el alto disponible para empujar el resumen al fondo */
+    height: 100%; 
 }
 
-.sidebar h2 {
-    margin-top: 10;
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Aquí aplicamos la separación de 10px entre botones */
+    margin-bottom: 20px; /* Separación respecto al título o lo que siga */
+}
+
+.menu h2 {
+    margin-bottom: 15px; /* Espacio bajo el título "Acciones" */
+}
+
+.resumen{
+    flex-direction: column; /* Cambiado a columna para mejor lectura */
+    align-items: center;
+    padding: 15px;
+    margin-top: auto; /* ¡Este es el truco! Empuja el div al fondo del sidebar */
+    border: black solid 1px;
     display: flex;
     justify-content:center;
 }
