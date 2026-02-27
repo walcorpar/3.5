@@ -34,7 +34,7 @@ img {
 }
 
 /* 1. Ocultamos las tres secciones por defecto */
-.id_1, .id_2, .id_3 {
+., .id_2, .id_3 {
     display: none;
 }
 

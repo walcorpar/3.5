@@ -1,86 +1,148 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css"
+      rel="stylesheet"
+    />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <section class="layout-grid">
-        <header class="header">
-            <h2>To Do List</h2>
-        </header>
-        <aside class="sidebar">
-            <div class="menu">
-                <h2>Acciones</h2>
-                <button type="button" class="btn btn-outline-primary" id="addTask">Agregar</button>
-                <button type="button" class="btn btn-outline-primary" id="editTask">Editar</button>
-                <button type="button" class="btn btn-outline-primary" id="eraseTask">Eliminar</button>
-            </div>
-            <div class="resumen">
-                <h3>Resumen</h3>
-                <p>Total Tareas: 10</p>
-                <p>Completadas: 5</p>
-                <p>Pendientes: 5</p>
-            </div>
-        </aside>
-        <main class="main">
-            <div class="task-list">
-                <h2>Lista de Tareas</h2>
+      <header class="header">
+        <h2>To Do List</h2>
+      </header>
+      <aside class="sidebar">
+        <div class="menu">
+          <h2>Acciones</h2>
+          <button type="button" class="btn btn-outline-primary" id="addTask">
+            Agregar
+          </button>
+          <button type="button" class="btn btn-outline-primary" id="editTask">
+            Editar
+          </button>
+          <button type="button" class="btn btn-outline-primary" id="eraseTask">
+            Eliminar
+          </button>
+        </div>
+        
+        <!-- Inicio Carga de resumen tareas -->
+        <div class="resumen" id="TaskResumen">
 
-                <div class="container-fluid p-4">
-                    <div class="table-responsive">
-                <table class="table table-hover">
-                    <thead><tr><th scope="col">#</th><th scope="col">Tarea</th></tr></thead>
-                    <tbody><tr><th scope="row">1</th><td>Mark</td></tr></tbody>
-                </table>
-                    </div>
-                    </div>
-            </div>
-            <div class="agregar">
-                <h2>Agregar Tarea</h2>
-                <input type="text" id="newTask" placeholder="Nueva tarea">
-                <button type="button" class="btn btn-primary" id="addNewTask">Agregar</button>
-                <br/>
-                <h2>Tareas actuales</h2>
+        </div>
+        <!-- Fin Carga de resumen tareas -->
 
-                <div class="container-fluid p-4">
-                    <div class="table-responsive">
-                <table class="table table-hover">
-                    <thead><tr><th scope="col">#</th><th scope="col">Tarea</th></tr></thead>
-                    <tbody><tr><th scope="row">1</th><td>Mark</td></tr></tbody>
-                </table>
-                    </div>
-                    </div>
+      </aside>
+      <main class="main">
+        <div class="task-list">
+                <h2>Lista de Tareas Pendientes</h2>
+          <div class="container-fluid p-4">
+            <div class="table-responsive">
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Tarea</th>
+                  </tr>
+                </thead>
+                <tbody id="TaskListado">
+                    <!-- Inicio cargar tareas -->
+                    <!-- fin cargar tareas -->
+                </tbody>
+              </table>
             </div>
-            <div class="editar">
-                <h2>Editar Tarea</h2>
-                <div class="container-fluid p-4">
-                    <div class="table-responsive">
-                <table class="table table-hover">
-                    <thead><tr><th scope="col">#</th><th scope="col">Tarea</th><th scope="col">accion</th></tr></thead>
-                    <tbody><tr><th scope="row">1</th><td>Mark</td><td><span class="mdi mdi-pencil" title="Modificar"></span> <span class="mdi mdi-delete-off" title="borrar"></span></td></tr></tbody>
-                </table>
-                </div>
-                </div>
+          </div>
+        </div>
+
+
+        <div class="agregar">
+          <h2>Agregar Tarea</h2>
+          <input type="text" id="newTask" placeholder="Nueva tarea" />
+          <button type="button" class="btn btn-primary" id="addNewTask">
+            Agregar
+          </button>
+          <br />
+          <h2>Tareas actuales</h2>
+
+          <div class="container-fluid p-4">
+            <div class="table-responsive">
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Tarea</th>
+                  </tr>
+                </thead>
+                <tbody id="TaskList">
+                  
+                    <!-- Inicio cargar tareas -->
+                    <!-- fin cargar tareas -->
+                  
+                </tbody>
+              </table>
             </div>
-            <div class="eliminar">
-                <h2>Eliminar Tarea</h2>
-                <div class="container-fluid p-4">
-                    <div class="table-responsive">
-                        <table class="table table-hover">
-                            <thead><tr><th scope="col">#</th><th scope="col">Tarea</th><th scope="col">accion</th></tr></thead>
-                            <tbody><tr><th scope="row">1</th><td>Mark</td><td><span class="mdi mdi-delete-off" title="borrar"></span></td></tr></tbody>
-                        </table>
-                    </div>
-                </div>
+          </div>
+        </div>
+        
+        <div class="editar">
+          <h2>Editar Tarea</h2>
+          <div class="container-fluid p-4">
+            <div class="table-responsive">
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Tarea</th>
+                    <th scope="col">accion</th>
+                  </tr>
+                </thead>
+                <tbody id="EditarList">
+                  
+                    <!-- Inicio editar tareas -->
+                    <!-- fin editar tareas -->
+
+                </tbody>
+              </table>
             </div>
-        </main>
-        <footer class="footer">Footer</footer>
+          </div>
+        </div>
+        <div class="eliminar">
+          <h2>Eliminar Tarea</h2>
+          <div class="container-fluid p-4">
+            <div class="table-responsive">
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Tarea</th>
+                    <th scope="col">accion</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>
+                      <span class="mdi mdi-delete-off" title="borrar"></span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </main>
+      <footer class="footer">Footer</footer>
     </section>
-    
-</body>
+    <script src="assets/js/script.js"></script>
+  </body>
 </html>

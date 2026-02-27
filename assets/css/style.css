@@ -70,3 +70,13 @@
     text-align: center;
     padding: 10px; */
 }
+
+/* 1. Ocultamos las tres secciones por defecto 
+.agregar, .editar, .eliminar {
+    display: none;
+}
+
+/* 2. Reglas para mostrar según la clase del contenedor padre 
+#addTask .agregar { display: flex; }
+#editTask .editar { display: flex; }
+#eraseTask .eliminar { display: flex; } */
