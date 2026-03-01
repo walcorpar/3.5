@@ -3,7 +3,8 @@ const TaskPendientes = [{id: 1, tarea: "Hacer la cama"},{id: 2, tarea: "Lavar lo
 const TaskCompletadas =[];
 
   //agregar tareas
-  function AgregarTarea(){
+  function GuardarNuevaTarea(){ 
+    document.body.className = "ver-agregar"; // Le decimos al CSS que muestre agregar
     const inputTarea = document.getElementById("newTask");
     const btnGuardar = document.getElementById("addNewTask");
     let maxId = 0;
@@ -86,10 +87,12 @@ function EliminaActualiza(TipoOperacion){
 }
 
 function EliminarTarea(){
+    document.body.className = "ver-eliminar"; // Le decimos al CSS que muestre eliminar
     EliminaActualiza("eliminar");
 }
 
 function EditarTarea(){
+    document.body.className = "ver-editar"; // Le decimos al CSS que muestre editar
     EliminaActualiza("editar");
 }
 
@@ -140,11 +143,13 @@ function BorrarPorId(idRecibido,TipoOperacion) {
 }
 
 
-const BotonAgregarTarea = document.getElementById("addNewTask");
+const BotonVistaAgregar = document.getElementById("addTask"); // El botón del menú lateral
+const BotonGuardarTarea = document.getElementById("addNewTask"); // El botón dentro de la sección agregar
 const BotonEditarTarea = document.getElementById("editTask");
 const BotonEliminarTarea = document.getElementById("eraseTask");
 
-BotonAgregarTarea.addEventListener("click", AgregarTarea);
+BotonVistaAgregar.addEventListener("click", MostrarSeccionAgregar);
+BotonGuardarTarea.addEventListener("click", GuardarNuevaTarea); // Cambiamos el nombre para no confundir
 BotonEditarTarea.addEventListener("click", EditarTarea);
 BotonEliminarTarea.addEventListener("click", EliminarTarea);
 ActualizarResumen();
@@ -173,3 +178,20 @@ for (let TareasPendiente of TaskPendientes){
   //console.log(htmlListado);
   ListadoTareas.innerHTML= htmlListado;
 };
+
+function MostrarSeccionAgregar() {
+    document.body.className = "ver-agregar"; // Cambia la vista mediante CSS
+    RenderizarTablaAgregar(); // Carga las tareas existentes en la tabla de esa sección
+}
+
+function RenderizarTablaAgregar() {
+    const ListadoTareas = document.getElementById("TaskList"); // El ID de la tabla en la sección agregar
+    let htmlListado = "";
+    
+    for (let TareasPendiente of TaskPendientes) {
+        htmlListado += `<tr><th scope="row">${TareasPendiente.id}</th><td>${TareasPendiente.tarea}</td></tr>`;
+    }
+    ListadoTareas.innerHTML = htmlListado;
+}
+
+

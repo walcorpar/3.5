@@ -1,3 +1,17 @@
+:root {
+    --color-fondo: #FDFCF0;
+    --color-sidebar: #C8B6A6;
+    --color-texto: #3E3232;
+    --color-borde: #A4907C;
+    --color-header: #8D7B68;
+}
+
+body {
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 .layout-grid {
  display: grid;
 
@@ -10,23 +24,30 @@
     min-height: 100vh;
 }
 .header {
-    grid-area: header;
-    border: black solid 1px;
-    /*background-color: #e2d1c3; /* Color sugerido para combinar con tu café */
-    padding: 30px;
-    justify-content:center;
-    align-items:center;
-    display: flex;
+grid-area: header;
+    background-color: var(--color-header);
+    color: white;
+    border: none;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 20px;
 }
 
 .sidebar {
-    grid-area: sidebar;
-    border: black solid 1px;
-    display: flex;
-    flex-direction: column;
-    padding: 40px;
-    /* Asegura que el sidebar ocupe todo el alto disponible para empujar el resumen al fondo */
-    height: 100%; 
+grid-area: sidebar;
+    background-color: var(--color-sidebar);
+    border-right: 2px solid var(--color-borde);
+    color: var(--color-texto);
+}
+
+.btn-outline-primary {
+    color: var(--color-texto);
+    border-color: var(--color-borde);
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--color-borde);
+    border-color: var(--color-borde);
+    color: white;
 }
 
 .menu {
@@ -41,42 +62,74 @@
 }
 
 .resumen{
-    flex-direction: column; /* Cambiado a columna para mejor lectura */
-    align-items: center;
-    padding: 15px;
-    margin-top: auto; /* ¡Este es el truco! Empuja el div al fondo del sidebar */
-    border: black solid 1px;
-    display: flex;
-    justify-content:center;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 8px;
+    border: 1px solid var(--color-borde);
+    margin-top: auto;
+    padding: 20px;
+}
+
+.table {
+    --bs-table-bg: transparent;
+    --bs-table-hover-bg: #F1EFE3;
+    color: var(--color-texto);
 }
 
 .main {
     grid-area: main;
-
-    /*
-    background-color: #FFF8DC;
-    padding: 40px;
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Centra el contenido del desafío */
+    background-color: var(--color-fondo);
+    padding: 30px;
 }
 
 .footer {
     grid-area: footer;
-    border: black solid 1px;
-    /*
-    background-color: #4A2C2A;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-header); /* Usa el color café oscuro de tu paleta */
     color: white;
-    text-align: center;
-    padding: 10px; */
+    padding: 15px;
+    font-size: 0.85rem;
+    border-top: 1px solid var(--color-borde);
 }
 
-/* 1. Ocultamos las tres secciones por defecto 
+.footer a {
+    color: #FDFCF0; /* Color crema para contraste */
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+.agregar, .editar, .eliminar, .task-list {
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Ocultamos las secciones de acción por defecto */
 .agregar, .editar, .eliminar {
     display: none;
 }
 
-/* 2. Reglas para mostrar según la clase del contenedor padre 
-#addTask .agregar { display: flex; }
-#editTask .editar { display: flex; }
-#eraseTask .eliminar { display: flex; } */
+/* El listado de tareas se muestra por defecto */
+.task-list {
+    display: block;
+}
+
+/* Reglas cuando el body tiene una clase activa */
+body.ver-agregar .task-list, 
+body.ver-editar .task-list, 
+body.ver-eliminar .task-list {
+    display: none; /* Esconde el listado principal en cualquier modo de edición */
+}
+
+body.ver-agregar .agregar { display: flex; flex-direction: column; }
+body.ver-editar .editar { display: flex; flex-direction: column; }
+body.ver-eliminar .eliminar { display: flex; flex-direction: column; }
